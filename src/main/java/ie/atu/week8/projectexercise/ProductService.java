@@ -48,7 +48,7 @@ public class ProductService {
     // Validation logic: Ensure the product price is positive and name is not empty
     private void validateProduct(Product product) {
         if (product.getPrice() < 0) {
-            throw new IllegalArgumentException("Price cannot be negative");
+            throw new IllegalArgumentException("price cannot be negative");
         }
         if (product.getName() == null || product.getName().isEmpty()) {
             throw new IllegalArgumentException("Product name cannot be empty");
