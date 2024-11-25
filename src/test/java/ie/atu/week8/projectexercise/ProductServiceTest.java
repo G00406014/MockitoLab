@@ -25,4 +25,11 @@ class ProductServiceTest {
         Product expectedProduct = productService.saveProduct(product);
         assertEquals(1350, expectedProduct.getPrice());
     }
+    @Test
+    void testValidateProductFailure()
+    {
+        Product product = new Product(1L, "Laptop", "Expensive", -1);
+        IllegalArgumentException iae = assertThrows(IllegalArgumentException.class,()-> productService.saveProduct(product));
+        assertEquals("Price cannot be negative", iae.getMessage());
+    }
 }
